@@ -1,0 +1,41 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Read in datasets for each crime category
+death_data = pd.read_csv('death_data.csv')
+suicide_data = pd.read_csv('suicide_data.csv')
+theft_data = pd.read_csv('theft_data.csv')
+accident_data = pd.read_csv('accident_data.csv')
+rape_data = pd.read_csv('rape_data.csv')
+murder_data = pd.read_csv('murder_data.csv')
+
+# Basic analysis of each dataset
+print("Death Data:")
+print(death_data.describe())
+print("\nSuicide Data:")
+print(suicide_data.describe())
+print("\nTheft Data:")
+print(theft_data.describe())
+print("\nAccident Data:")
+print(accident_data.describe())
+print("\nRape Data:")
+print(rape_data.describe())
+print("\nMurder Data:")
+print(murder_data.describe())
+
+# Visualize data using histograms
+fig, axs = plt.subplots(2, 3, figsize=(15, 10))
+axs[0, 0].hist(death_data['year'], bins=10)
+axs[0, 0].set_title('Death Data')
+axs[0, 1].hist(suicide_data['year'], bins=10)
+axs[0, 1].set_title('Suicide Data')
+axs[0, 2].hist(theft_data['year'], bins=10)
+axs[0, 2].set_title('Theft Data')
+axs[1, 0].hist(accident_data['year'], bins=10)
+axs[1, 0].set_title('Accident Data')
+axs[1, 1].hist(rape_data['year'], bins=10)
+axs[1, 1].set_title('Rape Data')
+axs[1, 2].hist(murder_data['year'], bins=10)
+axs[1, 2].set_title('Murder Data')
+plt.show()
